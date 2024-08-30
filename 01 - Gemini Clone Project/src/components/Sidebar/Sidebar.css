@@ -107,10 +107,9 @@
     cursor: pointer;
 }
 
-@media (max-width:600px) {
-    .sidebar{
+
+@media (max-width:540px) {
+    .side-bar{
         display: none;
     }
 }
-
-

@@ -5,7 +5,7 @@ import { Context } from "../../context/Context";
 
 const Sidebar = () => {
   const [extend, setExtend] = useState(false);
-  const { prevPrompts, handleRecentInput } = useContext(Context);
+  const { prevPrompts, handleRecentInput, handleNewChat } = useContext(Context);
 
   return (
     <div className="side-bar">
@@ -16,7 +16,7 @@ const Sidebar = () => {
           alt=""
           onClick={() => setExtend((prev) => !prev)}
         />
-        <div className="new-chat">
+        <div className="new-chat" onClick={handleNewChat}>
           <img src={assets.plus_icon} alt="" />
           {extend ? <p>New Chat</p> : null}
         </div>
@@ -41,6 +41,10 @@ const Sidebar = () => {
         ) : null}
       </div>
       <div className="bottom">
+        <div className="bottom-item recent-entry">
+          <img src={assets.question_icon} alt="" />
+          {extend ? <p>Dark</p> : null}
+        </div>
         <div className="bottom-item recent-entry">
           <img src={assets.question_icon} alt="" />
           {extend ? <p>Help</p> : null}

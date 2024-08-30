@@ -17,6 +17,7 @@ const MainArea = () => {
     handleInputChange,
     handleCardClick,
     cardsText,
+    darkTheme,
   } = useContext(Context);
 
   return (
@@ -56,7 +57,7 @@ const MainArea = () => {
             </div>
           </>
         ) : (
-          <div className="result output-container" ref={container}>
+          <div className={`result output-container`}  ref={container}>
             <div className="result-title">
               <img src={assets.user_icon} alt="" />
               <p>{recentPrompts}</p>

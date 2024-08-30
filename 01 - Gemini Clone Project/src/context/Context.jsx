@@ -144,13 +144,22 @@ const ContextProvider = (props) => {
 
   const handleDarkTheme = () =>{
     const element = document.querySelector(".main");
-
+    const element2 = document.querySelector(".side-bar");
+    console.log(element2)
     if(!darkTheme){
       element.style.backgroundColor="#131314";
+      element.style.color = "#f0f4f9";
+      element2.style.backgroundColor= "#131314";
+      element.style.color = "#f0f4f9";
+      input.current = "";
       setDarkTheme(true)
     }else{
       element.style.backgroundColor = "#f0f4f9";
+      element.style.color = "#000000";
+      element2.style.backgroundColor= "#f0f4f9";
+      element.style.color = "#000000";
       setDarkTheme(false)
+      input.current = "";
     }
   }
 

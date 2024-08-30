@@ -13,7 +13,6 @@ const ContextProvider = (props) => {
   const container = useRef(null);
   const input = useRef("");
   const [isUserScrolling, setIsUserScrolling] = useState(false);
-  const copied = useRef("");
   const [darkTheme, setDarkTheme] = useState(false);
 
   const delayResult = (index, nextWord) => {

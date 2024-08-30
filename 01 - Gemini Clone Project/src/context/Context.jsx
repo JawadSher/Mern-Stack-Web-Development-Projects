@@ -14,6 +14,7 @@ const ContextProvider = (props) => {
   const input = useRef("");
   const [isUserScrolling, setIsUserScrolling] = useState(false);
   const copied = useRef("");
+  const [darkTheme, setDarkTheme] = useState(false);
 
   const delayResult = (index, nextWord) => {
     setTimeout(() => {
@@ -141,6 +142,18 @@ const ContextProvider = (props) => {
     "Improve the readability of the following code",
   ];
 
+  const handleDarkTheme = () =>{
+    const element = document.querySelector(".main");
+
+    if(!darkTheme){
+      element.style.backgroundColor="#131314";
+      setDarkTheme(true)
+    }else{
+      element.style.backgroundColor = "#f0f4f9";
+      setDarkTheme(false)
+    }
+  }
+
   const ContextValue = {
     input,
     resultData,
@@ -157,6 +170,8 @@ const ContextProvider = (props) => {
     handleCardClick,
     cardsText,
     handleNewChat,
+    darkTheme,
+    handleDarkTheme,
   };
   return (
     <Context.Provider value={ContextValue}>{props.children}</Context.Provider>

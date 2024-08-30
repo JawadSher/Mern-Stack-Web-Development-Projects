@@ -2,10 +2,18 @@ import React, { useState, useContext } from "react";
 import { assets } from "../../assets/assets";
 import "./Sidebar.css";
 import { Context } from "../../context/Context";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 
 const Sidebar = () => {
   const [extend, setExtend] = useState(false);
-  const { prevPrompts, handleRecentInput, handleNewChat } = useContext(Context);
+  const {
+    prevPrompts,
+    handleRecentInput,
+    handleNewChat,
+    darkTheme,
+    handleDarkTheme,
+  } = useContext(Context);
 
   return (
     <div className="side-bar">
@@ -32,7 +40,10 @@ const Sidebar = () => {
                       onClick={() => handleRecentInput(prompt)}
                     >
                       <img src={assets.message_icon} alt="" />
-                      <p>{prompt.slice(0, 40)}{prompt.length > 40 ? " ...": null}</p>
+                      <p>
+                        {prompt.slice(0, 40)}
+                        {prompt.length > 40 ? " ..." : null}
+                      </p>
                     </div>
                   ))
                 : null}
@@ -41,9 +52,13 @@ const Sidebar = () => {
         ) : null}
       </div>
       <div className="bottom">
-        <div className="bottom-item recent-entry">
-          <img src={assets.question_icon} alt="" />
-          {extend ? <p>Dark</p> : null}
+        <div className="bottom-item recent-entry" onClick={handleDarkTheme}>
+          {!darkTheme ? (
+            <FontAwesomeIcon icon={faMoon} className="dark-moon" />
+          ) : (
+            <FontAwesomeIcon icon={faSun} className="dark-moon" />
+          )}
+          {extend ? <p> {!darkTheme ? "Dark" : "Light"}</p> : null}
         </div>
         <div className="bottom-item recent-entry">
           <img src={assets.question_icon} alt="" />

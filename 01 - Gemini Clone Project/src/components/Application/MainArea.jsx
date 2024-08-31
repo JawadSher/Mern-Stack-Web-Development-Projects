@@ -92,10 +92,10 @@ const MainArea = () => {
               onKeyDown={(e) => handleEnterBtn(e)}
             />
             <div>
-              <img src={assets.gallery_icon} alt="" />
-              <img src={assets.mic_icon} alt="" />
+              <img src={darkTheme ? assets.gallery_white: assets.gallery_icon} alt="" />
+              <img src={darkTheme ? assets.mic_white : assets.mic_icon} alt="" />
               {inputLength > 0 && !loading ? (
-                <img src={assets.send_icon} alt="" onClick={() => onSent()} />
+                <img src={darkTheme ? assets.send_white :assets.send_icon} alt="" onClick={() => onSent()} />
               ) : null}
             </div>
           </div>

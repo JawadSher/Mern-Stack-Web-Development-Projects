@@ -82,6 +82,12 @@
     margin-bottom: 20px;
 }
 
+.side-bar .recent-title2{
+    color: white;
+    margin-top: 35px;
+    margin-bottom: 20px;
+}
+
 .side-bar .recent-entry{
     display: flex;
     align-items: start;

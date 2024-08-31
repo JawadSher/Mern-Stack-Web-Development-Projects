@@ -14,6 +14,7 @@ const ContextProvider = (props) => {
   const input = useRef("");
   const [isUserScrolling, setIsUserScrolling] = useState(false);
   const [darkTheme, setDarkTheme] = useState(false);
+  const [extend, setExtend] = useState(false);
 
   const delayResult = (index, nextWord) => {
     setTimeout(() => {
@@ -141,26 +142,96 @@ const ContextProvider = (props) => {
     "Improve the readability of the following code",
   ];
 
-  const handleDarkTheme = () =>{
+  const handleDarkTheme = () => {
     const element = document.querySelector(".main");
     const element2 = document.querySelector(".side-bar");
-    console.log(element2)
-    if(!darkTheme){
-      element.style.backgroundColor="#131314";
+    const element3 = document.querySelector("#root");
+    const element4 = document.querySelectorAll(".card");
+    const element5 = document.querySelector(".search-box");
+    const element6 = document.querySelector(".bottom-info");
+    const element7 = document.querySelector(".new-chat");
+  
+    if (!darkTheme) {
+      // Apply dark theme styles
+      element.style.backgroundColor = "#131314";
       element.style.color = "#f0f4f9";
-      element2.style.backgroundColor= "#131314";
-      element.style.color = "#f0f4f9";
+      element2.style.backgroundColor = "#131314";
+      element3.style.backgroundColor = "#090909";
+  
+      element4.forEach(card => {
+        card.style.backgroundColor = '#282828ff';
+        card.firstChild.style.color = '#e3e3e3ff';
+        card.lastChild.style.backgroundColor = '#c7c7c7ff';
+  
+        card.removeEventListener('mouseenter', card._mouseenterListener);
+        card.removeEventListener('mouseleave', card._mouseleaveListener);
+  
+        card._mouseenterListener = () => {
+          card.style.backgroundColor = '#383838ff';
+          card.firstChild.style.color = '#ffffff';
+          card.lastChild.style.backgroundColor = '#d7d7d7ff';
+        };
+        card._mouseleaveListener = () => {
+          card.style.backgroundColor = '#282828ff';
+          card.firstChild.style.color = '#e3e3e3ff';
+          card.lastChild.style.backgroundColor = '#c7c7c7ff';
+        };
+  
+        card.addEventListener('mouseenter', card._mouseenterListener);
+        card.addEventListener('mouseleave', card._mouseleaveListener);
+      });
+  
+      element5.style.backgroundColor = '#282828ff';
+      element5.firstChild.style.color = '#c5c5c5';
+      element6.style.color = '#c5c5c5';
+      element7.style.backgroundColor = '#282828ff';
+      element7.lastChild.style.color = '#e3e3e3ff';
+  
+      element7.removeEventListener('mouseenter', element7._mouseenterListener);
+      element7.removeEventListener('mouseleave', element7._mouseleaveListener);
+  
+      element7._mouseenterListener = () => {
+        element7.style.backgroundColor = '#3b3b3b';
+        element7.lastChild.style.color = '#ffffff';
+      };
+      element7._mouseleaveListener = () => {
+        element7.style.backgroundColor = '#282828ff';
+        element7.lastChild.style.color = '#e3e3e3ff';
+      };
+  
+      element7.addEventListener('mouseenter', element7._mouseenterListener);
+      element7.addEventListener('mouseleave', element7._mouseleaveListener);
+
       input.current = "";
-      setDarkTheme(true)
-    }else{
+      setDarkTheme(true);
+    } else {
       element.style.backgroundColor = "#f0f4f9";
       element.style.color = "#000000";
-      element2.style.backgroundColor= "#f0f4f9";
-      element.style.color = "#000000";
-      setDarkTheme(false)
+      element2.style.backgroundColor = "#f0f4f9";
+      element3.style.backgroundColor = '#ffffff';
+  
+      element4.forEach(card => {
+        card.style.backgroundColor = '#e0e4eb';
+
+        card.removeEventListener('mouseenter', card._mouseenterListener);
+        card.removeEventListener('mouseleave', card._mouseleaveListener);
+      });
+  
+      element5.style.backgroundColor = '#ffffff';
+      element5.firstChild.style.color = '#000000';
+      element6.style.color = '#000000';
+      element7.style.backgroundColor = '#ffffff';
+      element7.lastChild.style.color = '#000000';
+
+      element7.removeEventListener('mouseenter', element7._mouseenterListener);
+      element7.removeEventListener('mouseleave', element7._mouseleaveListener);
+      
+
       input.current = "";
+      setDarkTheme(false);
     }
-  }
+  };
+  
 
   const ContextValue = {
     input,
@@ -180,6 +251,8 @@ const ContextProvider = (props) => {
     handleNewChat,
     darkTheme,
     handleDarkTheme,
+    extend,
+    setExtend,
   };
   return (
     <Context.Provider value={ContextValue}>{props.children}</Context.Provider>

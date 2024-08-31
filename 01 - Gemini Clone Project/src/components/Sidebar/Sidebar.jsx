@@ -6,13 +6,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 
 const Sidebar = () => {
-  const [extend, setExtend] = useState(false);
+
   const {
     prevPrompts,
     handleRecentInput,
     handleNewChat,
     darkTheme,
     handleDarkTheme,
+    extend,
+    setExtend,
   } = useContext(Context);
 
   return (
@@ -20,17 +22,17 @@ const Sidebar = () => {
       <div className="top">
         <img
           className="menu"
-          src={assets.menu_icon}
+          src={darkTheme ? assets.menu_white : assets.menu_icon}
           alt=""
           onClick={() => setExtend((prev) => !prev)}
         />
         <div className="new-chat" onClick={handleNewChat}>
-          <img src={assets.plus_icon} alt="" />
+          <img src={darkTheme ? assets.add_white : assets.plus_icon} alt="" />
           {extend ? <p>New Chat</p> : null}
         </div>
         {extend ? (
           <div className="recent">
-            <p className="recent-title">Recent</p>
+            {darkTheme ? <p className="recent-title2" >Recent</p> :<p className="recent-title" >Recent</p>}
             <div className="recent-prompt-scroll">
               {prevPrompts.length > 0
                 ? prevPrompts.map((prompt, index) => (

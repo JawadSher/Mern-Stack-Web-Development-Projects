@@ -191,6 +191,14 @@ const ContextProvider = (props) => {
         card.style.backgroundColor = '';
         card.firstChild.style.color = '';
         card.lastElementChild.style.backgroundColor = '';
+
+        card.addEventListener('mouseenter', ()=>{
+          card.style.backgroundColor = '';
+        })
+        card.addEventListener('mouseleave', ()=>{
+          card.style.backgroundColor = '';
+        })
+
       })
       element5.style.backgroundColor = '';
       element8.style.color = ''

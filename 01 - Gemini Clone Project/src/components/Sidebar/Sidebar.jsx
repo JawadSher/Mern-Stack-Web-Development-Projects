@@ -40,7 +40,7 @@ const Sidebar = () => {
               {prevPrompts.length > 0
                 ? prevPrompts.map((prompt, index) => (
                     <div
-                      className="recent-entry recent-entry2"
+                      className={`recent-entry ${darkTheme ? 'recent-dark' : ''}`}
                       key={index}
                       onClick={() => handleRecentInput(prompt)}
                     >

@@ -15,7 +15,6 @@ const ContextProvider = (props) => {
   const [isUserScrolling, setIsUserScrolling] = useState(false);
   const [darkTheme, setDarkTheme] = useState(false);
   const [extend, setExtend] = useState(false);
-  const [pageReload, setPageReload] = useState(0);
 
   const delayResult = (index, nextWord) => {
     setTimeout(() => {
@@ -197,16 +196,6 @@ const ContextProvider = (props) => {
         element7.lastElementChild.style.color = "";
       });
 
-      if (element9 != null && element9.contains(element9.firstChild)) {
-        element9.firstChild.addEventListener("mouseenter", () => {
-          element9.firstChild.style.backgroundColor = "#363e4f";
-        });
-        element9.firstChild.addEventListener("mouseleave", () => {
-          element9.firstChild.style.backgroundColor = "#0e1117";
-          element9.firstChild.style.color = "";
-        });
-      }
-
       element10.forEach((element)=>{
         element.addEventListener('mouseenter', ()=>{
           element.style.backgroundColor = '#1e222c'
@@ -247,17 +236,6 @@ const ContextProvider = (props) => {
         element7.style.backgroundColor = "";
         element7.lastElementChild.style.color = "";
       });
-
-      if (element9 != null && element9.contains(element9.firstChild)) {
-        element9.firstChild.style.backgroundColor = "";
-        element9.firstChild.addEventListener("mouseenter", () => {
-          element9.firstChild.style.backgroundColor = "";
-        });
-        element9.firstChild.addEventListener("mouseleave", () => {
-          element9.firstChild.style.backgroundColor = "";
-          element9.firstChild.style.color = "";
-        });
-      }
 
       element10.forEach((element)=>{
         element.addEventListener('mouseenter', ()=>{

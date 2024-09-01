@@ -15,6 +15,7 @@ const ContextProvider = (props) => {
   const [isUserScrolling, setIsUserScrolling] = useState(false);
   const [darkTheme, setDarkTheme] = useState(false);
   const [extend, setExtend] = useState(false);
+  const [pageReload, setPageReload] = useState(0);
 
   const delayResult = (index, nextWord) => {
     setTimeout(() => {
@@ -23,9 +24,7 @@ const ContextProvider = (props) => {
   };
 
   const handleNewChat = () => {
-    setShowResult(false);
-    setLoading(false);
-    setResultData("");
+    location.reload();
   };
 
   const onSent = async (prompt) => {

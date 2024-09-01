@@ -9,9 +9,9 @@ const ContextProvider = (props) => {
   const [prevPrompts, setPrevPrompts] = useState([]);
   const [recentPrompts, setRecentPrompts] = useState("");
   const [loading, setLoading] = useState(false);
-  const [inputLength, setInputLength] = useState(0);
   const container = useRef(null);
   const input = useRef("");
+  const [inputValue, setInputValue] = useState('');
   const [isUserScrolling, setIsUserScrolling] = useState(false);
   const [darkTheme, setDarkTheme] = useState(false);
   const [extend, setExtend] = useState(false);
@@ -40,9 +40,9 @@ const ContextProvider = (props) => {
       response = await runChat(prompt);
       setRecentPrompts(prompt);
     } else {
-      setPrevPrompts((prev) => [...prev, input.current]);
-      setRecentPrompts(input.current);
-      response = await runChat(input.current);
+      setPrevPrompts((prev) => [...prev, inputValue]);
+      setRecentPrompts(inputValue);
+      response = await runChat(inputValue);
     }
 
     let responseWithLinks = response.replace(
@@ -111,8 +111,7 @@ const ContextProvider = (props) => {
     }
 
     setLoading(false);
-    input.current = "";
-    setInputLength(0);
+    setInputValue('');
   };
 
   const handleEnterBtn = (event) => {
@@ -137,8 +136,7 @@ const ContextProvider = (props) => {
   }, [null]);
 
   const handleInputChange = (e) => {
-    input.current = e.target.value;
-    setInputLength(e.target.value.length);
+    setInputValue(e.target.value);
   };
 
   const handleRecentInput = (e) => {
@@ -285,7 +283,6 @@ const ContextProvider = (props) => {
     container,
     prevPrompts,
     handleInputChange,
-    inputLength,
     handleRecentInput,
     handleCardClick,
     cardsText,
@@ -294,6 +291,7 @@ const ContextProvider = (props) => {
     handleDarkTheme,
     extend,
     setExtend,
+    inputValue,
   };
   return (
     <Context.Provider value={ContextValue}>{props.children}</Context.Provider>

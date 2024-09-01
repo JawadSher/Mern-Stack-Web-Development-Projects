@@ -6,7 +6,6 @@ import { Context } from "../../context/Context";
 const MainArea = () => {
   const {
     onSent,
-    inputLength,
     input,
     resultData,
     showResult,
@@ -18,6 +17,7 @@ const MainArea = () => {
     handleCardClick,
     cardsText,
     darkTheme,
+    inputValue,
   } = useContext(Context);
 
   return (
@@ -88,14 +88,14 @@ const MainArea = () => {
               placeholder="Enter prompt here"
               onChange={handleInputChange}
               ref={input}
-              value={input.current}
+              value={inputValue}
               onKeyDown={(e) => handleEnterBtn(e)}
               className="search-area"
             />
             <div>
               <img src={darkTheme ? assets.gallery_white: assets.gallery_icon} alt="" />
               <img src={darkTheme ? assets.mic_white : assets.mic_icon} alt="" />
-              {inputLength > 0 && !loading ? (
+              {inputValue.length > 0 && !loading ? (
                 <img src={darkTheme ? assets.send_white :assets.send_icon} alt="" onClick={() => onSent()} />
               ) : null}
             </div>

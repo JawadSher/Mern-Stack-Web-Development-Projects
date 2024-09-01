@@ -168,6 +168,7 @@ const ContextProvider = (props) => {
     const element7 = document.querySelector(".new-chat");
     const element8 = document.querySelector(".search-area");
     const element9 = document.querySelector(".recent-prompt-scroll");
+    const element10 = document.querySelectorAll(".bottom-item");
 
     if (!darkTheme) {
       setDarkTheme(true);
@@ -209,7 +210,16 @@ const ContextProvider = (props) => {
           element9.firstChild.style.color = "";
         });
       }
-      
+
+      element10.forEach((element)=>{
+        element.addEventListener('mouseenter', ()=>{
+          element.style.backgroundColor = '#1e222c'
+        })
+        element.addEventListener('mouseleave', ()=>{
+          element.style.backgroundColor = 'transparent'
+        })
+      })
+     
     } else {
       setDarkTheme(false);
       element1.style.backgroundColor = "";
@@ -252,6 +262,15 @@ const ContextProvider = (props) => {
           element9.firstChild.style.color = "";
         });
       }
+
+      element10.forEach((element)=>{
+        element.addEventListener('mouseenter', ()=>{
+          element.style.backgroundColor = ''
+        })
+        element.addEventListener('mouseleave', ()=>{
+          element.style.backgroundColor = ''
+        })
+      })
     }
   };
 

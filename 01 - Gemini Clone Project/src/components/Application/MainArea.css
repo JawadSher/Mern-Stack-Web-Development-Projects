@@ -94,6 +94,7 @@
     background-color: #e0e4eb;
     padding: 10px 20px;
     border-radius: 50px;
+    max-height: fit-content;
 }
 
 .search-box img{
@@ -109,6 +110,7 @@
     padding: 8px;
     font-size: 18px;
     color: rgb(85, 84, 84);
+    max-height: fit-content;
 }
 
 .search-box div{

@@ -155,6 +155,7 @@ const ContextProvider = (props) => {
     if(!darkTheme){
       setDarkTheme(true);
       element1.style.backgroundColor = '#0e1117';
+      element1.style.color = '#c3c3c3';
       element1.firstChild.firstChild.style.color = '#c6c8cb';
       element2.style.backgroundColor = '#0e1117';
       element3.style.backgroundColor = '#010409';
@@ -184,6 +185,7 @@ const ContextProvider = (props) => {
     }else{
       setDarkTheme(false);
       element1.style.backgroundColor = '';
+      element1.style.color = '';
       element1.firstChild.firstChild.style.color = '';
       element2.style.backgroundColor = '';
       element3.style.backgroundColor = '';

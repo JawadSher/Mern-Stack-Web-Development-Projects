@@ -40,19 +40,19 @@ const MainArea = () => {
             <div className="cards">
               <div className="card" onClick={()=> handleCardClick(cardsText[0])}>
                 <p>{cardsText[0]}</p>
-                <img src={assets.compass_icon} alt="" />
+                <img src={darkTheme ? assets.compass_white : assets.compass_icon} alt="" />
               </div>
               <div className="card" onClick={()=> handleCardClick(cardsText[1])}>
                 <p>{cardsText[1]}</p>
-                <img src={assets.bulb_icon} alt="" />
+                <img src={darkTheme ? assets.bulb_white : assets.bulb_icon} alt="" />
               </div>
               <div className="card" onClick={()=> handleCardClick(cardsText[2])}>
                 <p>{cardsText[2]}</p>
-                <img src={assets.message_icon} alt="" />
+                <img src={darkTheme ? assets.mess_white : assets.message_icon} alt="" />
               </div>
               <div className="card" onClick={()=> handleCardClick(cardsText[3])}>
                 <p>{cardsText[3]}</p>
-                <img src={assets.code_icon} alt="" />
+                <img src={darkTheme ? assets.code_white : assets.code_icon} alt="" />
               </div>
             </div>
           </>
@@ -90,6 +90,7 @@ const MainArea = () => {
               ref={input}
               value={input.current}
               onKeyDown={(e) => handleEnterBtn(e)}
+              className="search-area"
             />
             <div>
               <img src={darkTheme ? assets.gallery_white: assets.gallery_icon} alt="" />

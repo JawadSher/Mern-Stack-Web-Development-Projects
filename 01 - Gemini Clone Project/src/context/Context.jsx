@@ -143,96 +143,72 @@ const ContextProvider = (props) => {
   ];
 
   const handleDarkTheme = () => {
-    const element = document.querySelector(".main");
+    const element1 = document.querySelector(".main");
     const element2 = document.querySelector(".side-bar");
     const element3 = document.querySelector("#root");
     const element4 = document.querySelectorAll(".card");
     const element5 = document.querySelector(".search-box");
     const element6 = document.querySelector(".bottom-info");
     const element7 = document.querySelector(".new-chat");
-  
-    if (!darkTheme) {
-      // Apply dark theme styles
-      element.style.backgroundColor = "#131314";
-      element.style.color = "#f0f4f9";
-      element2.style.backgroundColor = "#131314";
-      element3.style.backgroundColor = "#090909";
-  
-      element4.forEach(card => {
-        card.style.backgroundColor = '#282828ff';
-        card.firstChild.style.color = '#e3e3e3ff';
-        card.lastChild.style.backgroundColor = '#c7c7c7ff';
-  
-        card.removeEventListener('mouseenter', card._mouseenterListener);
-        card.removeEventListener('mouseleave', card._mouseleaveListener);
-  
-        card._mouseenterListener = () => {
-          card.style.backgroundColor = '#383838ff';
-          card.firstChild.style.color = '#ffffff';
-          card.lastChild.style.backgroundColor = '#d7d7d7ff';
-        };
-        card._mouseleaveListener = () => {
-          card.style.backgroundColor = '#282828ff';
-          card.firstChild.style.color = '#e3e3e3ff';
-          card.lastChild.style.backgroundColor = '#c7c7c7ff';
-        };
-  
-        card.addEventListener('mouseenter', card._mouseenterListener);
-        card.addEventListener('mouseleave', card._mouseleaveListener);
-      });
-  
-      element5.style.backgroundColor = '#282828ff';
-      element5.firstChild.style.color = '#c5c5c5';
-      element6.style.color = '#c5c5c5';
-      element7.style.backgroundColor = '#282828ff';
-      element7.lastChild.style.color = '#e3e3e3ff';
-  
-      element7.removeEventListener('mouseenter', element7._mouseenterListener);
-      element7.removeEventListener('mouseleave', element7._mouseleaveListener);
-  
-      element7._mouseenterListener = () => {
-        element7.style.backgroundColor = '#3b3b3b';
-        element7.lastChild.style.color = '#ffffff';
-      };
-      element7._mouseleaveListener = () => {
-        element7.style.backgroundColor = '#282828ff';
-        element7.lastChild.style.color = '#e3e3e3ff';
-      };
-  
-      element7.addEventListener('mouseenter', element7._mouseenterListener);
-      element7.addEventListener('mouseleave', element7._mouseleaveListener);
+    const element8 = document.querySelector(".search-area")
 
-      input.current = "";
+    if(!darkTheme){
       setDarkTheme(true);
-    } else {
-      element.style.backgroundColor = "#f0f4f9";
-      element.style.color = "#000000";
-      element2.style.backgroundColor = "#f0f4f9";
-      element3.style.backgroundColor = '#ffffff';
-  
-      element4.forEach(card => {
-        card.style.backgroundColor = '#e0e4eb';
-
-        card.removeEventListener('mouseenter', card._mouseenterListener);
-        card.removeEventListener('mouseleave', card._mouseleaveListener);
-      });
-  
-      element5.style.backgroundColor = '#ffffff';
-      element5.firstChild.style.color = '#000000';
-      element6.style.color = '#000000';
-      element7.style.backgroundColor = '#ffffff';
-      element7.lastChild.style.color = '#000000';
-
-      element7.removeEventListener('mouseenter', element7._mouseenterListener);
-      element7.removeEventListener('mouseleave', element7._mouseleaveListener);
-      
-
-      input.current = "";
+      element1.style.backgroundColor = '#0e1117';
+      element1.firstChild.firstChild.style.color = '#c6c8cb';
+      element2.style.backgroundColor = '#0e1117';
+      element3.style.backgroundColor = '#010409';
+      element4.forEach((card)=>{
+        card.style.backgroundColor = '#161a23';
+        card.firstChild.style.color = '#c3c3c3';
+        card.lastElementChild.style.backgroundColor = 'transparent';
+        card.addEventListener('mouseenter', ()=>{
+          card.style.backgroundColor = '#1e222c';
+        })
+        card.addEventListener('mouseleave', ()=>{
+          card.style.backgroundColor = '#161a23';
+        })
+      })
+      element5.style.backgroundColor = '#1a1e28';
+      element8.style.color = '#c6c8cb'
+      element6.style.color = '#c6c8cb'
+      element7.style.backgroundColor = '#272d3c';
+      element7.addEventListener(('mouseenter'), ()=>{
+        element7.style.backgroundColor = '#3d4557';
+        element7.lastElementChild.style.color = '#c3c3c3';
+      })
+      element7.addEventListener(('mouseleave'), ()=>{
+        element7.style.backgroundColor = '#272d3c';
+        element7.lastElementChild.style.color = '';
+      })
+    }else{
       setDarkTheme(false);
+      element1.style.backgroundColor = '';
+      element1.firstChild.firstChild.style.color = '';
+      element2.style.backgroundColor = '';
+      element3.style.backgroundColor = '';
+      element4.forEach((card)=>{
+        card.style.backgroundColor = '';
+        card.firstChild.style.color = '';
+        card.lastElementChild.style.backgroundColor = '';
+      })
+      element5.style.backgroundColor = '';
+      element8.style.color = ''
+      element6.style.color = '';
+      element7.style.backgroundColor = '';
+      element7.addEventListener(('mouseenter'), ()=>{
+        element7.style.backgroundColor = '';
+        element7.lastElementChild.style.color = '';
+      })
+      element7.addEventListener(('mouseleave'), ()=>{
+        element7.style.backgroundColor = '';
+        element7.lastElementChild.style.color = '';
+      })
+
     }
+
   };
   
-
   const ContextValue = {
     input,
     resultData,

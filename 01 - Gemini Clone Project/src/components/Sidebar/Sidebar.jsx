@@ -32,7 +32,7 @@ const Sidebar = () => {
         </div>
         {extend ? (
           <div className="recent">
-            {darkTheme ? <p className="recent-title2" >Recent</p> :<p className="recent-title" >Recent</p>}
+            {darkTheme ?  <p className="recent-title-light" >Recent</p>: <p className="recent-title" >Recent</p>} 
             <div className="recent-prompt-scroll">
               {prevPrompts.length > 0
                 ? prevPrompts.map((prompt, index) => (

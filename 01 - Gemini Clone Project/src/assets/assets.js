@@ -17,6 +17,10 @@ import gallery_white from './gallery_white_icon.png'
 import mic_white from './mic_white_icon.png'
 import menu_white from './menu_white_icon.png'
 import add_white from './add_white_icon.png'
+import compass_white from './compass_light_icon.png'
+import code_white from './code_light_icon.png'
+import bulb_white from './bulb_white_icon.png'
+import mess_white from './message_white_icon.png'
 // import gemini_icon from './gemini_icon.png'
 
 export const assets = {
@@ -40,4 +44,8 @@ export const assets = {
     mic_white,
     menu_white,
     add_white,
+    compass_white,
+    code_white,
+    bulb_white,
+    mess_white,
 }

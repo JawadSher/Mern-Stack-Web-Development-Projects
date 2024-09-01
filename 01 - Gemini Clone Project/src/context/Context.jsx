@@ -168,12 +168,6 @@ const ContextProvider = (props) => {
     const element7 = document.querySelector(".new-chat");
     const element8 = document.querySelector(".search-area");
     const element9 = document.querySelector(".recent-prompt-scroll");
-    const element10 = document.querySelector(".sun-light");
-    const element11 = document.querySelector(".help-icon");
-    const element12 = document.querySelector(".activity-icon");
-    const element13 = document.querySelector(".settings-icon");
-
-    console.log(element9);
 
     if (!darkTheme) {
       setDarkTheme(true);
@@ -211,10 +205,11 @@ const ContextProvider = (props) => {
           element9.firstChild.style.backgroundColor = "#363e4f";
         });
         element9.firstChild.addEventListener("mouseleave", () => {
-          element9.firstChild.style.backgroundColor = "";
+          element9.firstChild.style.backgroundColor = "#0e1117";
           element9.firstChild.style.color = "";
         });
       }
+      
     } else {
       setDarkTheme(false);
       element1.style.backgroundColor = "";

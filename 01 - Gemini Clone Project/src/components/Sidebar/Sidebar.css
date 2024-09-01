@@ -129,7 +129,10 @@
     }
 }
 
-.dark-moon{
-    width: 20px;
-    height: 20px;
+.sun-light, .help-icon, .activity-icon, .settings-icon{
+    fill: white;
+}
+
+.p-white{
+    color: white;
 }

@@ -118,7 +118,7 @@ const Sidebar = () => {
               />
             </svg>
           )}
-          {extend ? <p> {!darkTheme ? "Dark" : "Light"}</p> : null}
+          {extend ? <p className={darkTheme ? 'p-white':''}> {!darkTheme ? "Dark" : "Light"}</p> : null}
         </div>
         <div className="bottom-item recent-entry">
           {darkTheme ? (
@@ -139,7 +139,7 @@ const Sidebar = () => {
             </svg>
           ) : (
             <svg
-              className="w-[20px] h-[20px] text-gray-800 dark:text-white activity-icon"
+              className="w-[20px] h-[20px] text-gray-800 dark:text-white "
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -157,12 +157,12 @@ const Sidebar = () => {
             </svg>
           )}
 
-          {extend ? <p>Help</p> : null}
+          {extend ? <p className={darkTheme ? 'p-white':''}>Help</p> : null}
         </div>
         <div className="bottom-item recent-entry">
           {darkTheme ? (
             <svg
-              className="w-[20px] h-[20px] text-gray-800 dark:text-white settings-icon"
+              className="w-[20px] h-[20px] text-gray-800 dark:text-white activity-icon"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -196,12 +196,12 @@ const Sidebar = () => {
             </svg>
           )}
 
-          {extend ? <p>Activity</p> : null}
+          {extend ? <p className={darkTheme ? 'p-white':''}>Activity</p> : null}
         </div>
         <div className="bottom-item recent-entry">
           {darkTheme ? (
             <svg
-              className="w-[20px] h-[20px] text-gray-800 dark:text-white"
+              className="w-[20px] h-[20px] text-gray-800 dark:text-white settings-icon"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -234,7 +234,7 @@ const Sidebar = () => {
               />
             </svg>
           )}
-          {extend ? <p>Settings</p> : null}
+          {extend ? <p className={darkTheme ? 'p-white':''}>Settings</p> : null}
         </div>
       </div>
     </div>

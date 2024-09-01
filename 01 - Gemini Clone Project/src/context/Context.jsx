@@ -38,6 +38,7 @@ const ContextProvider = (props) => {
     let response = "";
     if (prompt) {
       response = await runChat(prompt);
+      setPrevPrompts((prev) => [...prev, prompt]);
       setRecentPrompts(prompt);
     } else {
       setPrevPrompts((prev) => [...prev, inputValue]);
@@ -140,13 +141,11 @@ const ContextProvider = (props) => {
   };
 
   const handleRecentInput = (e) => {
-    input.current = e;
-    onSent();
+    onSent(e);
   };
 
   const handleCardClick = (text) => {
-    input.current = text;
-    onSent();
+    onSent(text);
   };
 
   const cardsText = [

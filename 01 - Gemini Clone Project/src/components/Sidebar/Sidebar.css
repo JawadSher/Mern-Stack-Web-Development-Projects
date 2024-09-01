@@ -88,11 +88,15 @@
     margin-bottom: 20px;
 }
 
+.recent-entries{
+    color: #c3c3c3;
+}
+
 .side-bar .recent-entry{
     display: flex;
-    align-items: start;
+    align-items: center;
     gap: 10px;
-    padding: 10px;
+    padding: 5px 10px;
     padding-right: 40px;
     border-radius: 50px;
     cursor: pointer;
@@ -103,6 +107,10 @@
     background-color: #e2e6eb;
 }
 
+.chatSvg{
+    fill: #c3c3c3;
+}
+
 .side-bar .bottom{
     display: flex;
     flex-direction: column;
@@ -111,6 +119,7 @@
 .side-bar .bottom-item{
     padding-right: 10px;
     cursor: pointer;
+    margin-top: 5px;
 }
 
 
